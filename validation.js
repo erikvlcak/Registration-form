@@ -12,6 +12,7 @@ let patterns = {
     telephone: /^\+\d{2,4}\s\d{9,11}$/,
 };
 
+console.log(inputs.length)
 
 inputs.forEach((input) => {
     input.addEventListener('keyup', (e) => {
@@ -36,13 +37,13 @@ inputs.forEach((input) => {
             }
         }
         else {
-            e.target.nextElementSibling.setAttribute('class', 'invisible');
-            e.target.nextElementSibling.nextElementSibling.setAttribute('class', 'visible');
+            e.target.nextElementSibling.setAttribute('class', 'visible');
+            e.target.nextElementSibling.nextElementSibling.setAttribute('class', 'invisible');
             e.target.classList.remove('valid');
             e.target.classList.remove('invalid');
         }
 
-        if (register.size == 5) {
+        if (register.size == inputs.length) {
 
             regField.children[1].setAttribute('class', 'invisible');
             regField.children[2].setAttribute('class', 'visible');
@@ -60,7 +61,7 @@ inputs.forEach((input) => {
 submit.addEventListener('click', (e) => {
     if (e.target.className == 'active') {
         alert('Boli ste registrovani.');
-        e.target.textContent = 'Uz ste zaregistrovali.'
+        e.target.textContent = 'Ďakujem za registráciu.'
         e.target.setAttribute('class', 'inactive');
         e.target.nextElementSibling.nextElementSibling.setAttribute('class', 'invisible');
         e.target.disabled = true;
